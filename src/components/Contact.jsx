@@ -1,15 +1,37 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Title from "./Title";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
-  const notify = () => toast.success("Email sent successfully!");
+  const notifySuccess = () => toast.success("Email sent successfully!");
+  const notifyError = (message) => toast.error(message);
 
   const form = useRef();
+  const [validationError, setValidationError] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!form.current.user_name.value.trim()) {
+      setValidationError(true);
+      notifyError("Complete the name field");
+      return;
+    }
+
+    if (!form.current.user_email.value.trim()) {
+      setValidationError(true);
+      notifyError("Complete the email field");
+      return;
+    }
+
+    if (!form.current.message.value.trim()) {
+      setValidationError(true);
+      notifyError("Complete the message field");
+      return;
+    }
+
+    setValidationError(false);
 
     emailjs
       .sendForm(
@@ -21,6 +43,7 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          notifySuccess();
         },
         (error) => {
           console.log(error.text);
@@ -43,6 +66,7 @@ const Contact = () => {
             type="text"
             name="user_name"
             placeholder="Name"
+            required
           />
 
           <input
@@ -50,6 +74,7 @@ const Contact = () => {
             type="email"
             name="user_email"
             placeholder="Email"
+            required
           />
 
           <textarea
@@ -57,16 +82,16 @@ const Contact = () => {
             rows="10"
             name="message"
             placeholder="Message"
+            required
           />
 
           <button
-            onClick={notify}
-            type="button"
+            type="submit"
             className="btn btn-outline text-center inline-block px-8 py-3 w-max text-base font-medium rounded-md text-white bg-gradient-to-r from-yellow-500 to-pink-500 drop-shadow-md hover:stroke-white"
           >
-            {" "}
-            <input type="submit" value="Work with me" />
+            Work with me
           </button>
+          {validationError && <p className="text-red-500">Please complete all fields.</p>}
           <Toaster />
         </form>
       </div>
