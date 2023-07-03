@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/styles.css";
 import { FaGithub, FaRegEye } from "react-icons/fa";
 
-const PortfolioItem = ({ title, imgURL, stack, link, github }) => {
+const PortfolioItem = ({ title, imgURL, stack, link, githublink }) => {
   return (
     <div className="mt-24 border-2 border-stone-900 dark:border-white rounded-md overflow-hidden">
       <img
@@ -22,14 +22,15 @@ const PortfolioItem = ({ title, imgURL, stack, link, github }) => {
           ))}
         </p>
         <div className="flex flex-col md:flex-row gap-2 my-2">
+          
           <a href={link} target="blank" className="button-48" role="button">
             <span className=" flex gap-2 text">
               Live Link <FaRegEye />
             </span>
           </a>
 
-          <a href={github} target="blank" className="button-48" role="button">
-            <span className=" flex gap-2 text">
+          <a href={githublink} target="blank" className="button-48" role="button">
+            <span className=" flex gap-2">
               {" "}
               Github Repo <FaGithub />
             </span>
