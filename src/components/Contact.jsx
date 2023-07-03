@@ -52,7 +52,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col mb-10 mx-auto">
+    <div id="contact" className="flex flex-col mb-10 mx-auto">
       <div className="contact-container flex justify-center items-center">
         <form
           className="flex flex-col w-full md:w-7/12"
