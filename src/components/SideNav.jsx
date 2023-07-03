@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { AiOutlineHome, AiOutlineMenu, AiOutlineProject, AiOutlineBook,AiOutlineTrophy,AiOutlineIdcard } from "react-icons/ai";
 import {GrCli, GrContactInfo, GrHomeOption, GrPhone, GrUser} from "react-icons/gr"
+import { GiSkills } from "react-icons/gi";
 
 const SideNav = () => {
   const [nav, setNav] = useState(false);
@@ -40,8 +41,8 @@ const SideNav = () => {
             href="#skills"
             className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200"
           >
-            <AiOutlineTrophy size={20} />
-            <span className="pl-4">Awards</span>
+            <GiSkills size={20} />
+            <span className="pl-4">Skills</span>
           </a>
 
           <a  onClick={handleNav}
@@ -49,14 +50,14 @@ const SideNav = () => {
             className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200"
           >
             <AiOutlineIdcard size={20} />
-            <span className="pl-4">Work</span>
+            <span className="pl-4">Timeline</span>
           </a>
           <a  onClick={handleNav}
             href="#contact"
             className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200"
           >
             <AiOutlineProject size={20} />
-            <span className="pl-4">Publications</span>
+            <span className="pl-4">Contact</span>
           </a>
         
         </div>
@@ -76,7 +77,7 @@ const SideNav = () => {
               <GrCli  size={20}/>
             </a>
             <a href="#skills" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200">
-              <AiOutlineTrophy  size={20}/>
+              <GiSkills  size={20}/>
             </a>
             <a href="#timeline" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200">
               <GrContactInfo  size={20}/>
